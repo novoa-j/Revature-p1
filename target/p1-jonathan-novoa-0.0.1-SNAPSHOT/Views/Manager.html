@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<p> This is the manager website</p>
+
+<div class="container">
+	<p id="user"></p>
+	<br>
+
+</div>
+
+
+
+<hr>
+<button class="btn btn-info" id="pending" onclick="viewPendReim()"> View pending reimbursements</button>
+<button class="btn btn-info" id="resolved" onclick="viewResReim()"> View resolved reimbursements</button>
+<button class="btn btn-info" id="employee" onclick="viewEmployees()"> View Only Employees</button>
+<button class="btn btn-info" id="emp_man" onclick="viewAllEmp()"> View Employees and Managers</button>
+<br>
+<input type="text" id="userInput" onkeyup="search()" placeholder="Search for names..">
+
+
+
+<hr>
+<div class="container">
+	<table id="table" hidden class="table" data-toggle="table" data-search="true" data-filter-control="true" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+		<tr id="headerRow">
+			<th>Employee Id</th>
+			<th>Status</th>
+			<th>Resolution</th>
+			<th>Approved by</th>
+			<th>Amount</th>
+			<th >Reimbursement Id
+				<th>
+		</tr>
+	</table>
+</div>
+<hr>
+<div class="container">
+	<table id="table2" hidden class="table" >
+		<tr id="headerRow">
+			<th>Employee ID</th>
+			<th>First</th>
+			<th>Last</th>
+			<th>email</th>
+			<th>Is Manager<th>
+			
+		</tr>
+	</table>
+</div>
+<div class="container">
+	<form method="post" action="manager">
+		<label>reimbursement id: </label><br>
+		<input type="text" name="reimId" class="form-control" />
+		<br>
+		<select name="action" id="resolve">
+			<option value="1"> Approved</option>
+			<option value="2">Denied</option>
+		</select>
+			
+		
+		<input type="submit" value="Go" class="btn btn-primary" />
+	</form>
+</div>
+<div class="container">
+	<form method="post" action="one_reim">
+		<label>employee Id: </label><br>
+		<input type="text" name="empId" class="form-control" />
+		<br>
+		<input type="submit" value="Go" class="btn btn-primary" />
+	</form>
+</div>
+<br>
+<button class="btn btn-info" onclick="oneReim()">See one employee</button>
+
+
+
+
+
+<script src="./Scripts/Manager.js"></script>
+<br>
+<br>
+<button class="btn btn-info" onclick="logout()">Logout</button>
+</body>
+</html>
